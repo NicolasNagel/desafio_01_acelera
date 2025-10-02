@@ -1,0 +1,38 @@
+{
+    "quantidade_por_area": {
+        "Financeiro": 1,
+        "Operações": 1,
+        "TI": 3,
+        "Vendas": 2
+    },
+    "media_salario_por_area": {
+        "Financeiro": 0.0,
+        "Operações": 5100.0,
+        "TI": 6100.0,
+        "Vendas": 4650.0
+    },
+    "bonus_total": 9796.0,
+    "top3_bonus": [
+        {
+            "nome": "Maria Alves",
+            "area": "TI",
+            "salario": 6100,
+            "bonus_percentual": 0.12,
+            "bonus_final": 1732.0
+        },
+        {
+            "nome": "Daniel 9",
+            "area": "TI",
+            "salario": 5200,
+            "bonus_percentual": 0.1,
+            "bonus_final": 1520.0
+        },
+        {
+            "nome": "Ana Souza",
+            "area": "Vendas",
+            "salario": 4500,
+            "bonus_percentual": 0.1,
+            "bonus_final": 1450.0
+        }
+    ]
+}
