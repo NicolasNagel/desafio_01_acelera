@@ -8,6 +8,27 @@ import json
 from pathlib import Path
 
 
+def validar_linha(linha: dict) -> bool:
+    try:
+        if not linha.get('nome') or linha['nome'].strip() == '':
+            return False
+        
+        if not linha.get('area') or linha['area'].strip() == '':
+            return False
+        
+        salario = float(linha.get('salario', 0))
+        if salario < 0:
+            return False
+        
+        bonus = float(linha.get('bonus_percentual', 0))
+        if not (0 < bonus < 1):
+            return False
+        
+        return True
+    
+    except Exception:
+        return False
+
 def ler_e_validar_arquivo(pasta: str) -> Path | None:
     """
     Lê o arquivo 'funcionarios.csv' em uma pasta, valida as colunas e
@@ -34,38 +55,12 @@ def ler_e_validar_arquivo(pasta: str) -> Path | None:
     with open(file=arquivo, mode='r', encoding='utf-8') as file:
         _reader = csv.DictReader(file)
 
-        dados_validos: list = []
-        dados_invalidos: list = []
+        dados_validos, dados_invalidos = [], []
         fieldnames = _reader.fieldnames
 
         for linha in _reader:
-            linha_valida = True
-
-            try:
-                if not linha.get('nome') or linha['nome'].strip() == '':
-                    linha_valida = False
-                    
-                if not linha.get('area') or linha['area'].strip() == '':
-                    linha_valida = False
-
-                try:
-                    salario = float(linha['salario'])
-                    if salario < 0:
-                        linha_valida = False
-                except (ValueError, TypeError):
-                    linha_valida = False
-
-                try:
-                    bonus = float(linha['bonus_percentual'])
-                    if not (0 < bonus < 1):
-                        linha_valida = False
-                except (ValueError, TypeError):
-                    linha_valida = False
-
-            except Exception as e:
-                print(f"Erro ao ler o arquivo: {file}")
-
-            if linha_valida:
+            
+            if validar_linha(linha):
                 dados_validos.append(linha)
             else:
                 dados_invalidos.append(linha)
