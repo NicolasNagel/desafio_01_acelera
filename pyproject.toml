@@ -9,7 +9,9 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "pandas (>=2.3.3,<3.0.0)",
-    "mkdocs (>=1.6.1,<2.0.0)"
+    "mkdocs (>=1.6.1,<2.0.0)",
+    "sqlalchemy (>=2.0.44,<3.0.0)",
+    "pandera (>=0.26.1,<0.27.0)"
 ]
 
 

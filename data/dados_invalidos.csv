@@ -1,4 +1,6 @@
 id,nome,area,salario,bonus_percentual
 5,,RH,3800,0.15
+4,Daniel 9,TI,5200,0.1
+3,Carla Mota,Financeiro,0,0.2
+8,João Silva,Operações,5300,
 6,Elisa Prado,Financeiro,6100,-0.05
-8,João Silva,Operações,5300,abc
